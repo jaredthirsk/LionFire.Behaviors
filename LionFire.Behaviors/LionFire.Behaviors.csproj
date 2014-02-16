@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B2CA34C2-2725-4162-938A-A607B2A2B403}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LionFire.Behaviors</RootNamespace>
+    <AssemblyName>LionFire.Behaviors</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;POLLER_COROUTINES;BEHAVIOR_NAME;BEHAVIOR_INPC;SanityChecks;LOGGER;TESTS;LionFireUtilityDll_off;NoDeps</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;POLLER_COROUTINES;BEHAVIOR_NAME;BEHAVIOR_INPC;SanityChecks;LOGGER_off;TESTS;NO_LOGGER;NoDeps</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\SharedAssemblyVersionInfo.cs">
+      <Link>Properties\SharedAssemblyVersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="Behaviors\Behavior.cs" />
+    <Compile Include="Behaviors\BehaviorBase.cs" />
+    <Compile Include="Behaviors\BehaviorContext.cs" />
+    <Compile Include="Behaviors\BehaviorPoller.cs" />
+    <Compile Include="Behaviors\BehaviorStatus.cs" />
+    <Compile Include="Behaviors\IBehavior.cs" />
+    <Compile Include="Behaviors\IHasStatusText.cs" />
+    <Compile Include="Behaviors\PolledBehavior.cs" />
+    <Compile Include="Behaviors\RecurringTask.cs" />
+    <Compile Include="Behaviors\StatusPoller.cs" />
+    <Compile Include="Composites\BehaviorCollection.cs" />
+    <Compile Include="Composites\Composite.cs" />
+    <Compile Include="Composites\IDecorated.cs" />
+    <Compile Include="Composites\SelectingMultiComposite.cs" />
+    <Compile Include="Composites\TaskRunner.cs" />
+    <Compile Include="Composites\MultiComposite.cs" />
+    <Compile Include="Composites\Parallel.cs" />
+    <Compile Include="Composites\SingleComposite.cs" />
+    <Compile Include="Conditions\AttachingCondition.cs" />
+    <Compile Include="Conditions\DelayedCondition.cs" />
+    <Compile Include="Conditions\RandomCondition.cs" />
+    <Compile Include="Dependencies\Coroutine.cs" />
+    <Compile Include="Dependencies\CoroutineHost.cs" />
+    <Compile Include="Dependencies\Coroutines.cs" />
+    <Compile Include="Dependencies\CoroutineState.cs" />
+    <Compile Include="Dependencies\Exceptions.cs" />
+    <Compile Include="Dependencies\IHasCoroutineHost.cs" />
+    <Compile Include="Dependencies\IHasRecurrenceParameters.cs" />
+    <Compile Include="Dependencies\Log.cs" />
+    <Compile Include="Dependencies\Meta.cs" />
+    <Compile Include="Dependencies\RandomProvider.cs" />
+    <Compile Include="Dependencies\RecurranceParameters.cs" />
+    <Compile Include="Dependencies\Singleton.cs" />
+    <Compile Include="Dependencies\TimeSpanExtensions.cs" />
+    <Compile Include="Polling\CoroutineHostPollingProvider.cs" />
+    <Compile Include="Polling\IHasPollingProvider.cs" />
+    <Compile Include="Polling\PollingExceptionBehavior.cs" />
+    <Compile Include="Polling\TimerPollingProvider.cs" />
+    <Compile Include="Conditions\Condition.cs" />
+    <Compile Include="Conditions\ICondition.cs" />
+    <Compile Include="Conditions\PollingCondition.cs" />
+    <Compile Include="Decorators\Decorator.cs" />
+    <Compile Include="Decorators\IDecorator.cs" />
+    <Compile Include="Dependencies\Dependencies.cs" />
+    <Compile Include="Recurrance\Repeater.cs" />
+    <Compile Include="Scorers\IScorer.cs" />
+    <Compile Include="Scorers\PolledScorer.cs" />
+    <Compile Include="Selectors\SelectorPersonality.cs" />
+    <Compile Include="Recurrance\IPolledStatus.cs" />
+    <Compile Include="Polling\IPoller.cs" />
+    <Compile Include="Polling\Poller.cs" />
+    <Compile Include="Recurrance\PollingProvider.cs" />
+    <Compile Include="Behaviors\RepeatingBehaviorNode.cs" />
+    <Compile Include="Recurrance\IRecurring.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recurrance\RecurranceState.cs" />
+    <Compile Include="Scorers\ConstScorer.cs" />
+    <Compile Include="Scorers\IPolledScorer.cs" />
+    <Compile Include="Scorers\LowestScorer.cs" />
+    <Compile Include="Scorers\ScorePoller.cs" />
+    <Compile Include="Scorers\Scorer.cs" />
+    <Compile Include="Selectors\Selector.cs" />
+    <Compile Include="Composites\Sequencer.cs" />
+    <Compile Include="Selectors\SelectorParameters.cs" />
+    <Compile Include="Tests\Behaviors\FailureBehavior.cs" />
+    <Compile Include="Tests\Behaviors\SuccessBehavior.cs" />
+    <Compile Include="Tests\Conditions\FalseCondition.cs" />
+    <Compile Include="Tests\Conditions\TrueCondition.cs" />
+    <Compile Include="Tests\TestPolledScorer.cs" />
+    <Compile Include="Tests\TestTree.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Lionfire.Utility\LionFire.Utility.csproj" Condition="'$(Configuration)'=='Debug' Or '$(Configuration)'=='R NET45'">
+      <Project>{10df87c2-fbf7-45df-a2e3-eb22aea89e16}</Project>
+      <Name>LionFire.Utility</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Lionfire.Utility\LionFire.Utility.Unity.csproj" Condition="'$(Configuration)'!='Debug' And '$(Configuration)'!='R NET45'">
+      <Project>{dcc92445-384f-4475-989b-7f26246777f4}</Project>
+      <Name>LionFire.Utility.Unity</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>powershell -Command "$psi = New-Object System.Diagnostics.ProcessStartInfo;$psi.FileName='C:\Src\valor\Publishing\]] SetVersion().cs';$psi.WindowStyle = [System.Diagnostics.ProcessWindowStyle]::Hidden;[System.Diagnostics.Process]::Start($psi)"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
